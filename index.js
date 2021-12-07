@@ -3,9 +3,9 @@ $("#form").submit(function (e) {
     
     var query = $("#search").val()
     
-    var API_KEY = '86d405d218ff05f29c075da984f5ca37'
+    var API_KEY = '69da118144f72c8a5dad7b4028bf161940fd8b1a59efc5bab1ec88943791e79a'
     
-    var url = 'https://api.serpstack.com/search?access_key='+ API_KEY + "&type=web&query=" + query
+    var url = 'https://serpapi.com/search.json?engine=google&q=' + query + '&api_key='+ API_KEY
     console.log(url)
     
     $.get(url,function(data){
