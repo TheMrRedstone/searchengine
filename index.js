@@ -8,7 +8,16 @@ $("#form").submit(function (e) {
     var url = 'https://serpapi.com/search.json?engine=google&q=' + query + '&api_key='+ API_KEY
     
     $.get(url,function(data){
-        fetch('people.json')
+        var fs = require("fs");
+        console.log("Going to write into existing file");
+
+        fs.writeFile('Main.json', data, function(err) {
+        if (err) {
+            return console.error(err);
+        }
+        console.log("Data written successfully!");
+        console.log("Let's read newly written data");
+        fetch('Main.json')
             .then(function (response) {
                 return response.json();
             })
