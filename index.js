@@ -6,9 +6,25 @@ $("#form").submit(function (e) {
     var API_KEY = 'd8e5af2b153e1105fda032f5be5ad55976ac358c7594fde6a780888c29d23329'
     
     var url = 'https://serpapi.com/search.json?engine=google&q=' + query + '&api_key='+ API_KEY
-    console.log(url)
     
     $.get(url,function(data){
-        console.log(data)
+        fetch('people.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("fechedData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = data[i]
+                mainContainer.appendChild(div);
+            }
+        }
     })
 })
