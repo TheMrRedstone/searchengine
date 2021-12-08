@@ -17,8 +17,8 @@ $("#form").submit(function (e) {
             }
             console.log("Data written successfully!");
             console.log("Let's read newly written data");
-            fetch('Main.json')
         });
+            fetch('Main.json')
             .then(function (response) {
                 return response.json();
             })
