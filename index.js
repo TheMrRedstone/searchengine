@@ -12,12 +12,13 @@ $("#form").submit(function (e) {
         console.log("Going to write into existing file");
 
         fs.writeFile('Main.json', data, function(err) {
-        if (err) {
-            return console.error(err);
-        }
-        console.log("Data written successfully!");
-        console.log("Let's read newly written data");
-        fetch('Main.json')
+            if (err) {
+                return console.error(err);
+            }
+            console.log("Data written successfully!");
+            console.log("Let's read newly written data");
+            fetch('Main.json')
+        });
             .then(function (response) {
                 return response.json();
             })
